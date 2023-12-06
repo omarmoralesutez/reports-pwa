@@ -87,11 +87,19 @@
 
       try{
         const response = await axiosClient.post('/incidences/save',payload);
-        toastMessage('Se ha registado la incidencia exitosamente').showToast();
+        if(response['registered']){
+          toastMessage('Se ha registado la incidencia exitosamente').showToast();
+          $('#largeModal').modal('hide')
+          await getAllIncidencesByEmployee()
+        }else{
+          toastMessage('Ocurrio un error').showToast();
+        }
+
       }catch(e){
         toastMessage('Error al registrar la incidencia').showToast();
       }
     }
+  
   
 
   const getAllIncidencesByEmployee = async () => {

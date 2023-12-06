@@ -1,5 +1,5 @@
 const axiosClient = axios.create({
-  baseURL: 'http://206.189.234.55:3001/api',
+  baseURL: 'http://3.218.215.244:3000/api',
 });
 
 axiosClient.interceptors.request.use(
